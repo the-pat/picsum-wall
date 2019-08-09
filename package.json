@@ -1,0 +1,50 @@
+{
+  "name": "picsum-wall",
+  "version": "0.0.1",
+  "description": "Bringing the joys of picsum to your desktop",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "xo",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ./dist/index.js",
+    "precommit": "xo --fix"
+  },
+  "keywords": [
+    "picsum",
+    "wallpaper",
+    "macos",
+    "linux",
+    "windows",
+    "win",
+    "background",
+    "picture",
+    "photo",
+    "cli"
+  ],
+  "author": "the-pat",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^9.6.0",
+    "meow": "^5.0.0",
+    "tempy": "^0.3.0",
+    "wallpaper": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/got": "^9.6.5",
+    "@types/meow": "^5.0.0",
+    "@types/wallpaper": "^2.5.1",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint-config-xo-typescript": "^0.16.0",
+    "lint-staged": "^9.2.1",
+    "typescript": "^3.5.3",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "extends": "xo-typescript",
+    "extensions": [
+      "ts"
+    ]
+  }
+}
