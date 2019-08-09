@@ -41,6 +41,9 @@
     "typescript": "^3.5.3",
     "xo": "^0.24.0"
   },
+  "bin": {
+    "picsum-wall": "./dist/index.js"
+  },
   "xo": {
     "extends": "xo-typescript",
     "extensions": [
