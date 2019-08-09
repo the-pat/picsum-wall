@@ -1,6 +1,6 @@
 {
   "name": "picsum-wall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bringing the joys of picsum to your desktop",
   "main": "./dist/index.js",
   "scripts": {
