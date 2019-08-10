@@ -3,13 +3,14 @@
   "version": "0.1.2",
   "description": "Bringing the joys of picsum to your desktop",
   "main": "./bin/index.js",
+  "types": "./bin/index.d.ts",
   "scripts": {
     "test": "xo",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node ./bin/index.js",
     "precommit": "xo --fix",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build"
   },
   "keywords": [
     "picsum",
