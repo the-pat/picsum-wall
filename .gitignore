@@ -90,3 +90,5 @@ typings/
 
 # Transpiled node files
 bin/
+
+.vscode/
