@@ -1,4 +1,5 @@
-import {createWriteStream, unlink} from 'fs';
+#!/usr/bin/env node
+import {createWriteStream} from 'fs';
 import {pipeline} from 'stream';
 import {promisify} from 'util';
 import {stream as gotStream, GotBodyOptions} from 'got';
@@ -6,7 +7,6 @@ import {default as meow} from 'meow';
 import {file as tempFile} from 'tempy';
 import {set as setWallpaper} from 'wallpaper';
 
-const unlinkP = promisify(unlink);
 const pipelineP = promisify(pipeline);
 
 const cli = meow(`
@@ -81,7 +81,6 @@ const gotOptions: GotBodyOptions<null> = {
 			createWriteStream(file)
 		);
 		await setWallpaper(file);
-		await unlinkP(file);
 	} catch (error) {
 		console.error(error);
 	}
