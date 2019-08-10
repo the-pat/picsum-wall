@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "removeComments": false,
+    "lib": ["es6", "es2015", "dom"],
+    "declaration": true,
+    "outDir": "bin",
+    "rootDir": "src",
     "strict": true,
-    "esModuleInterop": true
+    "types": ["node"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   }
 }

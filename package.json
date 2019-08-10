@@ -2,13 +2,14 @@
   "name": "picsum-wall",
   "version": "0.1.1",
   "description": "Bringing the joys of picsum to your desktop",
-  "main": "./dist/index.js",
+  "main": "./bin/index.js",
   "scripts": {
     "test": "xo",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node ./dist/index.js",
-    "precommit": "xo --fix"
+    "start": "node ./bin/index.js",
+    "precommit": "xo --fix",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "picsum",
@@ -42,7 +43,7 @@
     "xo": "^0.24.0"
   },
   "bin": {
-    "picsum-wall": "./dist/index.js"
+    "picsum-wall": "./bin/index.js"
   },
   "xo": {
     "extends": "xo-typescript",
