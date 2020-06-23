@@ -5,11 +5,9 @@
   "main": "./bin/index.js",
   "types": "./bin/index.d.ts",
   "scripts": {
-    "test": "xo",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node ./bin/index.js",
-    "precommit": "xo --fix",
     "prepare": "npm run build"
   },
   "keywords": [
@@ -28,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "got": "^9.6.0",
-    "meow": "^5.0.0",
+    "meow": "^7.0.1",
     "tempy": "^0.3.0",
     "wallpaper": "^4.4.1"
   },
@@ -40,16 +38,9 @@
     "@typescript-eslint/parser": "^1.13.0",
     "eslint-config-xo-typescript": "^0.16.0",
     "lint-staged": "^9.2.1",
-    "typescript": "^3.5.3",
-    "xo": "^0.24.0"
+    "typescript": "^3.5.3"
   },
   "bin": {
     "picsum-wall": "./bin/index.js"
-  },
-  "xo": {
-    "extends": "xo-typescript",
-    "extensions": [
-      "ts"
-    ]
   }
 }
