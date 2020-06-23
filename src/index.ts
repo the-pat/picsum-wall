@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-import {createWriteStream} from 'fs';
-import {pipeline} from 'stream';
-import {promisify} from 'util';
-import {stream as gotStream, GotBodyOptions} from 'got';
-import {default as meow} from 'meow';
-import {file as tempFile} from 'tempy';
-import {set as setWallpaper} from 'wallpaper';
+import { createWriteStream } from "fs";
+import { pipeline } from "stream";
+import { promisify } from "util";
+import { stream as gotStream, GotBodyOptions } from "got";
+import { default as meow } from "meow";
+import { file as tempFile } from "tempy";
+import { set as setWallpaper } from "wallpaper";
 
 const pipelineP = promisify(pipeline);
 
-const cli = meow(`
+const cli = meow(
+  `
 	Usage
 		$ picsum-wall [...]
 	
@@ -26,62 +27,61 @@ const cli = meow(`
 		$ picsum-wall --blur --grayscale
 		$ picsum-wall --id 237
 		
-`, {
-	flags: {
-		width: {
-			type: 'string',
-			default: '1920'
-		},
-		height: {
-			type: 'string',
-			default: '1080'
-		},
-		grayscale: {
-			type: 'boolean'
-		},
-		blur: {
-			type: 'boolean'
-		},
-		id: {
-			type: 'string',
-			default: null
-		}
-	}
-});
+`,
+  {
+    flags: {
+      width: {
+        type: "string",
+        default: "1920",
+      },
+      height: {
+        type: "string",
+        default: "1080",
+      },
+      grayscale: {
+        type: "boolean",
+      },
+      blur: {
+        type: "boolean",
+      },
+      id: {
+        type: "string",
+        default: undefined,
+      },
+    },
+  }
+);
 
 const gotOptions: GotBodyOptions<null> = {
-	baseUrl: 'https://picsum.photos'
+  baseUrl: "https://picsum.photos",
 };
 
 (async () => {
-	const {width, height, grayscale, blur, id} = cli.flags;
-	const file = tempFile({extension: 'jpg'});
-	let url = `${width}/${height}`;
-	const query = [];
+  const { width, height, grayscale, blur, id } = cli.flags;
+  const file = tempFile({ extension: "jpg" });
+  let url = `${width}/${height}`;
+  const query = [];
 
-	if (id) {
-		url = `id/${id}/${url}`;
-	}
+  if (id) {
+    url = `id/${id}/${url}`;
+  }
 
-	if (grayscale) {
-		query.push('grayscale');
-	}
+  if (grayscale) {
+    query.push("grayscale");
+  }
 
-	if (blur) {
-		query.push('blur');
-	}
+  if (blur) {
+    query.push("blur");
+  }
 
-	if (grayscale || blur) {
-		gotOptions.query = query.join('&');
-	}
+  if (grayscale || blur) {
+    gotOptions.query = query.join("&");
+  }
 
-	try {
-		await pipelineP(
-			gotStream(url, gotOptions),
-			createWriteStream(file)
-		);
-		await setWallpaper(file);
-	} catch (error) {
-		console.error(error);
-	}
+  try {
+    await pipelineP(gotStream(url, gotOptions), createWriteStream(file));
+    await setWallpaper(file);
+  } catch (error) {
+    console.error(error);
+  }
 })();
