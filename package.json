@@ -1,6 +1,6 @@
 {
   "name": "picsum-wall",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Bringing the joys of picsum to your desktop",
   "main": "./bin/index.js",
   "types": "./bin/index.d.ts",
