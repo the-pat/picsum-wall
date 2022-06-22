@@ -25,7 +25,7 @@
   "author": "the-pat",
   "license": "MIT",
   "dependencies": {
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "meow": "^7.0.1",
     "tempy": "^0.3.0",
     "wallpaper": "^4.4.1"
